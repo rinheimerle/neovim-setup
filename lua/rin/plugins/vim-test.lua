@@ -1,12 +1,14 @@
 return {
 	"vim-test/vim-test",
 	config = function()
-		-- set keymaps
 		local keymap = vim.keymap
 		local global = vim.g
 
-		global.strategy = "neovim_sticky"
+		global["test#strategy"] = "neovim"
+		-- disable echoing the test command before running it
+		global["test#neovim_sticky#echo_command"] = 0
 
+		-- set keymaps
 		keymap.set("n", "<leader>lt", ":TestFile<CR>", { desc = "Run current test file" })
 		keymap.set("n", "<leader>ls", ":TestNearest<CR>", { desc = "Run nearest test from cursor location" })
 		keymap.set("n", "<leader>la", ":TestLast<CR>", { desc = "Run most recent spec" })

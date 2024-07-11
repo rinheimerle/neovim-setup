@@ -40,3 +40,5 @@ keymap.set("n", "<C-,>", "<cmd>BufferPrevious<CR>", { desc = "Move to previous t
 keymap.set("n", "<C-.>", "<cmd>BufferNext<CR>", { desc = "Move to next tab" })
 keymap.set("n", "<C-<>", "<cmd>BufferMovePrevious<CR>", { desc = "Re-order previous tab" })
 keymap.set("n", "<C->>", "<cmd>BufferMoveNext<CR>", { desc = "Re-order next tab" })
+
+-- functions
