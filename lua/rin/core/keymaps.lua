@@ -42,3 +42,26 @@ keymap.set("n", "<C-<>", "<cmd>BufferMovePrevious<CR>", { desc = "Re-order previ
 keymap.set("n", "<C->>", "<cmd>BufferMoveNext<CR>", { desc = "Re-order next tab" })
 
 -- functions
+-- copy current file path
+vim.api.nvim_create_user_command("CopyRelativePath", function()
+	local path = vim.fn.expand("%:.")
+	vim.fn.setreg("+", path)
+	vim.notify('Copied "' .. path .. '" to the clipboard!')
+end, {})
+
+vim.api.nvim_create_user_command("CopyFullPath", function()
+	local path = vim.fn.expand("%:p")
+	vim.fn.setreg("+", path)
+	vim.notify('Copied "' .. path .. '" to the clipboard!')
+end, {})
+
+vim.api.nvim_create_user_command("CopyFileName", function()
+	local path = vim.fn.expand("%:t")
+	vim.fn.setreg("+", path)
+	vim.notify('Copied "' .. path .. '" to the clipboard!')
+end, {})
+
+-- call the Cppath function
+keymap.set("n", "<leader>cr", ":CopyRelativePath<CR>", { desc = "Copy relative file path" })
+keymap.set("n", "<leader>cp", ":CopyFullPath<CR>", { desc = "Copy full file path" })
+keymap.set("n", "<leader>cf", ":CopyFileName<CR>", { desc = "Copy filename" })

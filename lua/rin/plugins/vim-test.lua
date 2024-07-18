@@ -4,7 +4,7 @@ return {
 		local keymap = vim.keymap
 		local global = vim.g
 
-		global["test#strategy"] = "neovim"
+		global["test#strategy"] = "neovim_sticky"
 		-- disable echoing the test command before running it
 		global["test#neovim_sticky#echo_command"] = 0
 
